@@ -1,1 +1,5 @@
-# Simulator
+# Simulace geometrie prostoročasu a gravitačních interakcí
+
+Hlavní cíl programu
+
+Cílem programu je vyvinout pokročilou numerickou simulaci, která realisticky modeluje zakřivení prostoročasu podle obecné teorie relativity, způsobené přítomností hmoty a energie, a vizualizuje gravitační interakce mezi hmotnými tělesy včetně jejich dynamického pohybu po geodetikách. Simulace má za úkol přesně reprezentovat geometrii prostoročasu pomocí čtyřrozměrné metrické mřížky, která odráží Riemannovu geometrii a zakřivení definované Einsteinovým tenzorem, spíše než intuitivní fyzický vzhled. Program je navržen tak, aby umožnil uživateli hlubší pochopení gravitačních jevů – od makroskopických efektů, jako jsou orbitální dráhy planet či gravitační vlny, až po hypotetické mikroskopické projevy na škálách blízkých Planckově délce, kde by mohly být relevantní prvky kvantové gravitace. Dlouhodobým záměrem je rozšíření simulace o multiskalární analýzu gravitačních interakcí, zahrnující atomovou úroveň až po kosmologické struktury viditelného vesmíru, s možností pozdějšího začlenění principů kvantové teorie pole a standardního modelu částic.

@@ -1,0 +1,77 @@
+using System.ComponentModel;
+using System.Windows.Input;
+using Simulator.Core;
+using Simulator.Models;
+
+namespace Simulator.ViewModels
+{
+    public class MainViewModel : INotifyPropertyChanged
+    {
+        private readonly SimulationEngine simulationEngine;
+        private readonly SimulationConfig config;
+        private bool isSimulationRunning;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public bool UseColorGradient
+        {
+            get => config.UseColorGradient;
+            set
+            {
+                config.UseColorGradient = value;
+                OnPropertyChanged(nameof(UseColorGradient));
+            }
+        }
+
+        public float TimeScale
+        {
+            get => config.TimeScale;
+            set
+            {
+                config.TimeScale = value;
+                simulationEngine.SetTimeScale(value);
+                OnPropertyChanged(nameof(TimeScale));
+            }
+        }
+
+        public ICommand ToggleSimulationCommand { get; }
+        public ICommand ResetSimulationCommand { get; }
+
+        public MainViewModel(SimulationEngine engine, SimulationConfig config)
+        {
+            this.simulationEngine = engine;
+            this.config = config;
+
+            ToggleSimulationCommand = new RelayCommand(_ => ToggleSimulation());
+            ResetSimulationCommand = new RelayCommand(_ => ResetSimulation());
+        }
+
+        private void ToggleSimulation()
+        {
+            isSimulationRunning = !isSimulationRunning;
+            if (isSimulationRunning)
+                simulationEngine.StartSimulation();
+            else
+                simulationEngine.PauseSimulation();
+        }
+
+        private void ResetSimulation()
+        {
+            simulationEngine.ResetSimulation();
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+}{
+    "workbench.commandPalette.experimental.askChatLocation": "chatView",
+    "workbench.experimental.cloudChanges.autoStore": "onShutdown",
+    "workbench.list.scrollByPage": true,
+    "workbench.panel.opensMaximized": "never",
+    "workbench.editor.centeredLayoutAutoResize": false,
+    "zenMode.centerLayout": false,
+    "zenMode.fullScreen": false,
+    "github.copilot.chat.terminalChatLocation": "terminal"
+}

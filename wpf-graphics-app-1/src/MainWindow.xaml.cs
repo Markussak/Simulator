@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace WpfGraphicsApp
+namespace wpf_graphics_app
 {
     public partial class MainWindow : Window
     {

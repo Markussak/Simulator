@@ -66,7 +66,7 @@ namespace QuantumCompressionTheory {
 
     // Hlavní operace pro spuštění simulace
     @EntryPoint()
-    operation RunQuantumCompressionSimulation() : Unit {
+    operation RunQuantumCompressionSimulation() : Double {
         // Inicializace 3 qubitů (malý model neutrinového pole)
         use qubits = Qubit[3];
 
@@ -88,5 +88,8 @@ namespace QuantumCompressionTheory {
 
         // Reset qubitů pro uvolnění
         ResetAll(qubits);
+        
+        // Return the effective gravitational constant
+        return Geff;
     }
 }
